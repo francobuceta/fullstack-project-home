@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (initialUrl: string, reqOpt?: RequestInit) => {
-const [url, setUrl] = useState(initialUrl)
+export const useFetchAllPokemon = (
+  initialUrl: string,
+  reqOpt?: RequestInit
+) => {
+  const [url, setUrl] = useState(initialUrl);
   const [data, setData] = useState<PokemonList>();
   const [error, setError] = useState<undefined | Error>();
   const [isLoading, setIsLoading] = useState(false);
@@ -29,9 +32,9 @@ const [url, setUrl] = useState(initialUrl)
       if (e instanceof Error) {
         setError(e);
       }
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   useEffect(() => {

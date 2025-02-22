@@ -1,6 +1,6 @@
 import banner from "./assets/banner.jpg";
 import Layout from "./components/Layout";
-import List from "./components/List";
+import PokemonContainer from "./components/PokemonContainer";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <h1 className="text-center text-xl md:text-2xl lg:text-4xl font-bold text-primary">¡Find and choose your favourites Pokemons!</h1>
         </div>
 
-        <List />
+        <PokemonContainer />
       </Layout>
     </>
   )
