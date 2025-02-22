@@ -27,7 +27,7 @@ const PokemonContainer = () => {
     setErorDetails(false);
     if (query.length > 3) {
       const { data, error } = await fetchPokemonDetails(
-        `${API_URL}/${query.toLowerCase()}`
+        `${API_URL}/${query.toLowerCase()}`,
       );
       if (error) {
         setErorDetails(true);

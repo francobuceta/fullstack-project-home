@@ -17,12 +17,12 @@ interface Ability {
   slot: number;
   name: string;
   url: string;
-  ability: { name: string, url: string};
+  ability: { name: string; url: string };
 }
 
 interface Type {
   slot: number;
-  type: { name: string, url: string};
+  type: { name: string; url: string };
 }
 
 interface Pokemon {

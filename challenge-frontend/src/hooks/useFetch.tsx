@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export const useFetchAllPokemon = (
   initialUrl: string,
-  reqOpt?: RequestInit
+  reqOpt?: RequestInit,
 ) => {
   const [url, setUrl] = useState(initialUrl);
   const [data, setData] = useState<PokemonList>();

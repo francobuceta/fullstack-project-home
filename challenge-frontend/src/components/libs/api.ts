@@ -1,5 +1,5 @@
 export const fetchPokemonDetails = async (
-  initialUrl: string
+  initialUrl: string,
 ): Promise<{
   data: Pokemon | null;
   error: Error | null;

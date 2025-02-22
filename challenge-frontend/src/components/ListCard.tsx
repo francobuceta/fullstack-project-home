@@ -35,14 +35,13 @@ const ListCard: FC<ListCardProps> = ({ pokemon }) => {
         </div>
         <div className="h-full flex flex-col items-center gap-5 p-5">
           <span className="font-medium uppercase text-gray-700">{name}</span>
-          {
-            isFavorite ?
+          {isFavorite ? (
             <div className="underline cursor-pointer" onClick={handleFavorite}>
               <span>Delete from favorites</span>
             </div>
-            :
+          ) : (
             <Button content="Add to favorites" action={handleFavorite} />
-          }
+          )}
         </div>
       </div>
     </article>
