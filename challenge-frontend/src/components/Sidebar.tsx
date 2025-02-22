@@ -32,6 +32,10 @@ const Sidebar = () => {
             ))
           )}
         </ul>
+
+        <div className="flex justify-center pt-10">
+          <Button content="Save My List" />
+        </div>
       </div>
     </div>
   );
