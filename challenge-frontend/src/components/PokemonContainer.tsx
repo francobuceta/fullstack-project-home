@@ -11,6 +11,7 @@ const API_URL = "https://pokeapi.co/api/v2/pokemon";
 const PokemonContainer = () => {
   const [query, setQuery] = useState("");
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null);
+  const [errorDetails, setErorDetails] = useState<boolean>(false);
   const { data, isLoading, isError, refetch } = useFetchAllPokemon(API_URL);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,24 +24,33 @@ const PokemonContainer = () => {
   };
 
   const handleSearch = async () => {
+    setErorDetails(false);
     if (query.length > 3) {
-      const { data } = await fetchPokemonDetails(
+      const { data, error } = await fetchPokemonDetails(
         `${API_URL}/${query.toLowerCase()}`
       );
+      if (error) {
+        setErorDetails(true);
+      }
       if (data) {
         setPokemonDetails(data);
       }
     }
   };
-  console.log(pokemonDetails);
-  
+
   return (
     <div>
       <div className="w-full flex justify-center items-center gap-5 pb-10">
         <Searchbar query={query} handleInputChange={handleInputChange} />
         <Button content="Buscar" action={handleSearch} />
       </div>
-      {query && pokemonDetails ? (
+      {errorDetails ? (
+        <div className="w-full ">
+          <div className="w-fit mx-auto p-2 rounded-md bg-red-400">
+            <span className="text-xl">That pokemon has not been found</span>
+          </div>
+        </div>
+      ) : query && pokemonDetails ? (
         <Details data={pokemonDetails} />
       ) : (
         data && (

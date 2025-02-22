@@ -18,6 +18,11 @@ interface Ability {
   ability: { name: string, url: string};
 }
 
+interface Type {
+  slot: number;
+  type: { name: string, url: string};
+}
+
 interface Pokemon {
   id: number;
   name: string;
@@ -27,4 +32,5 @@ interface Pokemon {
   order: number;
   weight: number;
   abilities: Ability[];
+  types: Type[];
 }
