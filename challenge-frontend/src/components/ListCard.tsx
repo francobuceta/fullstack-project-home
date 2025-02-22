@@ -14,7 +14,7 @@ const ListCard: FC<ListCardProps> = ({ pokemon }) => {
           <img
             src={`https://img.pokemondb.net/artwork/${name}.jpg`}
             alt={name}
-            className="w-auto h-[220px] p-5"
+            className="w-auto mx-auto h-[220px] p-5"
           />
         </div>
         <div className="h-full flex flex-col items-center gap-5 p-5">
