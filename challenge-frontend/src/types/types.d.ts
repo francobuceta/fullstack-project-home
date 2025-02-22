@@ -10,6 +10,8 @@ interface PokemonSummary {
   url: string;
 }
 
+type FavoritePokemon = Pick<PokemonSummary, "name">;
+
 interface Ability {
   is_hidden: boolean;
   slot: number;

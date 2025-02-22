@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useFavoritesStore } from "../store/favoritesStore";
+import { useSidebarStore } from "../store/sidebarStore";
 import Button from "./ui/Button";
 
 interface ListCardProps {
@@ -7,6 +9,20 @@ interface ListCardProps {
 
 const ListCard: FC<ListCardProps> = ({ pokemon }) => {
   const { name } = pokemon;
+  const { favorites, addFavorite, removeFavorite } = useFavoritesStore();
+  const { openSidebar } = useSidebarStore();
+
+  const isFavorite = favorites.some((fav) => fav.name === name);
+
+  const handleFavorite = () => {
+    if (isFavorite) {
+      removeFavorite(name);
+    } else {
+      addFavorite(pokemon);
+      openSidebar();
+    }
+  };
+
   return (
     <article className="w-full max-w-[250px] h-[350px] bg-secondary rounded-md">
       <div className="h-full flex flex-col items-center">
@@ -19,7 +35,14 @@ const ListCard: FC<ListCardProps> = ({ pokemon }) => {
         </div>
         <div className="h-full flex flex-col items-center gap-5 p-5">
           <span className="font-medium uppercase text-gray-700">{name}</span>
-          <Button content="Agregar a favoritos" />
+          {
+            isFavorite ?
+            <div className="underline cursor-pointer" onClick={handleFavorite}>
+              <span>Delete from favorites</span>
+            </div>
+            :
+            <Button content="Add to favorites" action={handleFavorite} />
+          }
         </div>
       </div>
     </article>
