@@ -32,7 +32,7 @@
 
 1. Clone repository
    ```bash
-   git clone https://github.com/your-username/challenge-frontend.git
+   git clone https://github.com/francobuceta/fullstack-project-home.git
 2. Install dependencies
    ```bash
    npm install
