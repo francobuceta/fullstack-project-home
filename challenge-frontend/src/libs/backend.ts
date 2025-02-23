@@ -1,6 +1,6 @@
 export const saveFavoritesList = async (
   initialUrl: string,
-  list: FavoritePokemon[]
+  list: FavoritePokemon[],
 ): Promise<{
   data: { id: string } | null;
   error: Error | null;
@@ -55,7 +55,7 @@ export const getFavoritesList = async (
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-      }
+      },
     });
     const result = await res.json();
 

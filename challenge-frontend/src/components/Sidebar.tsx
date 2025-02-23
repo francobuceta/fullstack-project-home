@@ -15,7 +15,7 @@ const Sidebar = () => {
     if (favorites.length > 0) {
       const { data, error } = await saveFavoritesList(
         "http://localhost:3000/favorites",
-        favorites
+        favorites,
       );
       if (error) {
         setError(true);
@@ -67,12 +67,13 @@ const Sidebar = () => {
           </div>
         )}
 
-        {
-          error &&
+        {error && (
           <div className="pt-3">
-            <span>An error occurred while saving the list, try again later</span>
+            <span>
+              An error occurred while saving the list, try again later
+            </span>
           </div>
-        }
+        )}
       </div>
     </div>
   );

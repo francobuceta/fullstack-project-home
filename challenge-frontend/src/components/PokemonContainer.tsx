@@ -14,7 +14,7 @@ const PokemonContainer = () => {
   const [query, setQuery] = useState("");
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null);
   const [favoriteList, setFavoriteList] = useState<FavoritesResponse | null>(
-    null
+    null,
   );
   const [errorDetails, setErorDetails] = useState<boolean>(false);
   const { data, isLoading, isError, refetch } = useFetchAllPokemon(API_URL);
@@ -38,7 +38,7 @@ const PokemonContainer = () => {
       if (query.includes("-")) {
         //If includes "-" it means is an ID for favorite list search.
         const { data, error } = await getFavoritesList(
-          `http://localhost:3000/favorites/${query}`
+          `http://localhost:3000/favorites/${query}`,
         );
         if (error) {
           setErorDetails(true);
@@ -48,7 +48,7 @@ const PokemonContainer = () => {
         }
       } else {
         const { data, error } = await fetchPokemonDetails(
-          `${API_URL}/${query.toLowerCase()}`
+          `${API_URL}/${query.toLowerCase()}`,
         );
         if (error) {
           setErorDetails(true);
@@ -69,7 +69,9 @@ const PokemonContainer = () => {
       {errorDetails || isError ? (
         <div className="w-full">
           <div className="w-fit mx-auto p-2 rounded-md bg-red-400">
-            <span className="text-xl">That pokemon or list has not been found</span>
+            <span className="text-xl">
+              That pokemon or list has not been found
+            </span>
           </div>
         </div>
       ) : query && pokemonDetails ? (
