@@ -4,7 +4,7 @@ import { useSidebarStore } from "../store/sidebarStore";
 import Button from "./ui/Button";
 
 interface ListCardProps {
-  pokemon: PokemonSummary;
+  pokemon: PokemonSummary | FavoritePokemon;
 }
 
 const ListCard: FC<ListCardProps> = ({ pokemon }) => {
@@ -24,7 +24,7 @@ const ListCard: FC<ListCardProps> = ({ pokemon }) => {
   };
 
   return (
-    <article className="w-full max-w-[250px] h-[350px] bg-secondary rounded-md">
+    <article className="w-full max-w-[250px] h-[350px] mx-auto bg-secondary rounded-md">
       <div className="h-full flex flex-col items-center">
         <div className="w-full bg-white rounded-t-md">
           <img
