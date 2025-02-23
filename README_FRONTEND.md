@@ -17,7 +17,7 @@
 | `react` | ^19.0.0 | UI Library |
 | `tailwindcss` | ^4.0.8 | CSS Framework |
 | `zustand` | ^5.0.3 | State Management |
-| `@tailwindcss/vite` | ^4.0.8 | Tailwind+Vite Integration |
+| `@tailwindcss/vite` | ^4.0.8 | Enables rapid UI development |
 
 ### Development Tools
 | Tool | Version | Usage |
