@@ -31,12 +31,11 @@ class FavoriteController {
           typeof item === "object" &&
           item !== null &&
           "name" in item &&
-          typeof item.name === "string"
+          typeof item.name === "string",
       )
     ) {
       res.status(400).json({
-        message:
-          "Incorrect structure.",
+        message: "Incorrect structure.",
       });
       return;
     }

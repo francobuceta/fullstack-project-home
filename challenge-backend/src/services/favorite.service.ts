@@ -5,7 +5,9 @@ import { FavoriteData } from "../types/types";
 
 const FILE_PATH = path.join(__dirname, "../../data/favorites.json");
 
-export const getFavoritesByIdService = (id: string): Promise<FavoriteData | null> => {
+export const getFavoritesByIdService = (
+  id: string,
+): Promise<FavoriteData | null> => {
   return new Promise((resolve, reject) => {
     fs.readFile(FILE_PATH, "utf8", (err, data) => {
       if (err) {
@@ -21,7 +23,8 @@ export const getFavoritesByIdService = (id: string): Promise<FavoriteData | null
         return reject(parseError);
       }
 
-      const favoritesData = favoritesList.find((item) => item.id === id) || null;
+      const favoritesData =
+        favoritesList.find((item) => item.id === id) || null;
       resolve(favoritesData);
     });
   });
@@ -50,10 +53,15 @@ export const saveFavoritesService = (favorites: any[]): Promise<string> => {
       // Add the new favorites list.
       favoritesList.push(favoritesData);
 
-      fs.writeFile(FILE_PATH, JSON.stringify(favoritesList, null, 2), "utf8", (err) => {
-        if (err) return reject(err);
-        resolve(id);
-      });
+      fs.writeFile(
+        FILE_PATH,
+        JSON.stringify(favoritesList, null, 2),
+        "utf8",
+        (err) => {
+          if (err) return reject(err);
+          resolve(id);
+        },
+      );
     });
   });
 };

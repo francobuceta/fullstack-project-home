@@ -4,5 +4,5 @@ export interface FavoriteData {
 }
 
 export interface Pokemon {
-    name: string;
-  }
+  name: string;
+}

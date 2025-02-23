@@ -24,7 +24,7 @@ describe("Favorites API", () => {
     const favoritesData = {
       favorites: [
         { name: "pikachu", url: "https://pokeapi.co/api/v2/pokemon/25/" },
-        { name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/" }
+        { name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/" },
       ],
     };
 
@@ -48,7 +48,10 @@ describe("Favorites API", () => {
       .set("Content-Type", "application/json");
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "An array of Pokémon was expected.");
+    expect(response.body).toHaveProperty(
+      "message",
+      "An array of Pokémon was expected.",
+    );
   });
 
   test("GET /favorites/:id should return 404 if favorites list not found", async () => {
