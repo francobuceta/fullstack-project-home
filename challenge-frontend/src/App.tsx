@@ -7,11 +7,11 @@ function App() {
   return (
     <div className="relative">
       <header className="w-full">
-        <div className="h-[450px]">
+        <div className="h-[250px] md:h-[350px]">
           <img
             src={banner}
             alt="Group of Pokemons and trainers"
-            className="w-full h-auto object-contain"
+            className="w-full h-full object-cover object-center"
           />
         </div>
       </header>
