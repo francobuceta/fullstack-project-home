@@ -12,6 +12,11 @@ interface PokemonSummary {
 
 type FavoritePokemon = Pick<PokemonSummary, "name">;
 
+interface FavoritesResponse {
+  id: string;
+  favorites: FavoritePokemon[];
+}
+
 interface Ability {
   is_hidden: boolean;
   slot: number;

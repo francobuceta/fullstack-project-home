@@ -7,7 +7,7 @@ interface SearchbarProps {
 
 const Searchbar: FC<SearchbarProps> = ({ query, handleInputChange }) => {
   return (
-    <div className="max-w-md">
+    <div className="w-full max-w-md">
       <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
         <div className="grid place-items-center h-full w-12 text-gray-300">
           <svg
@@ -29,7 +29,7 @@ const Searchbar: FC<SearchbarProps> = ({ query, handleInputChange }) => {
           className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
           type="text"
           id="search"
-          placeholder="Search by name"
+          placeholder="Search by name or list ID"
           value={query}
           onChange={handleInputChange}
         />
