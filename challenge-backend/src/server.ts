@@ -1,8 +1,14 @@
 import express from "express";
 import cors from "cors";
+import rateLimit from "express-rate-limit";
 import favoriteRoute from "./routes/favorite.route";
 
 const app = express();
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100,
+});
 
 //Initial config.
 app.use(
@@ -17,6 +23,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(limiter);
 
 //Routes.
 app.use("/favorites", favoriteRoute.getRouter());
