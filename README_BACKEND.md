@@ -36,7 +36,7 @@ Node.js backend service built with Express.js and TypeScript featuring security 
 
 1. Clone repository
    ```bash
-   git clone https://github.com/your-username/challenge-backend.git
+   git clone https://github.com/francobuceta/fullstack-project-home.git
 2. Install dependencies
    ```bash
    npm install
