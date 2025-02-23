@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-//import UserRouter from "./routes/user.router.js";
+import favoriteRoute from "./routes/favorite.route";
 
 const app = express();
 
@@ -18,8 +18,8 @@ app.use(
   })
 );
 
-//Route.
-//app.use("/api/users", UserRouter.getRouter());
+//Routes.
+app.use("/favorites", favoriteRoute.getRouter());
 
 //Exclude express header on response.
 app.disable('x-powered-by');
