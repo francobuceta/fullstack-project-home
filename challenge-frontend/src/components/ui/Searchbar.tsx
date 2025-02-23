@@ -29,6 +29,7 @@ const Searchbar: FC<SearchbarProps> = ({ query, handleInputChange }) => {
           className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
           type="text"
           id="search"
+          aria-label="Search"
           placeholder="Search by name or list ID"
           value={query}
           onChange={handleInputChange}

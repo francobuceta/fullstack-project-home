@@ -4,15 +4,13 @@ import favoriteRouter from "../routes/favorite.route";
 import fs from "fs";
 import path from "path";
 
-// Configura una instancia de la app para testing.
 const app = express();
 app.use(express.json());
 app.use("/favorites", favoriteRouter.getRouter());
 
-// Ruta del archivo de datos (para test, puedes usar un archivo temporal o mockear fs)
 const FILE_PATH = path.join(__dirname, "../../data/favorites.json");
 
-// Opcional: limpiar el archivo de favoritos antes de cada test
+// Clean file before testing.
 beforeEach(() => {
   if (fs.existsSync(FILE_PATH)) {
     fs.unlinkSync(FILE_PATH);
